@@ -8,4 +8,13 @@ const getIndex = (request, response) => {
   response.end();
 };
 
+// this function can call either client2 or client3.html
+const getPage = (request, response, filePath) => {
+  const page = fs.readFileSync(filePath);
+  response.writeHead(200, { 'Content-Type': 'text/html' });
+  response.write(page);
+  response.end();
+};
+
 module.exports.getIndex = getIndex;
+module.exports.getPage = getPage;

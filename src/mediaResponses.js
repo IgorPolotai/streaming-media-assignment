@@ -1,8 +1,8 @@
 const fs = require('fs');
 const path = require('path');
 
-const getParty = (request, response, filePath) => {
-    
+// I renamed getParty into getFile after I made it a reusable function
+const getFile = (request, response, filePath, fileType) => {
   const file = path.resolve(__dirname, filePath);
 
   fs.stat(file, (err, stats) => {
@@ -33,7 +33,7 @@ const getParty = (request, response, filePath) => {
       'Content-Range': `bytes ${start}-${end}/${total}`,
       'Accept-Ranges': 'bytes',
       'Content-Length': chunksize,
-      'Content-Type': 'video/mp4',
+      'Content-Type': fileType,
     });
 
     const stream = fs.createReadStream(file, { start, end });
@@ -50,4 +50,4 @@ const getParty = (request, response, filePath) => {
   });
 };
 
-module.exports.getParty = getParty;
+module.exports.getFile = getFile;

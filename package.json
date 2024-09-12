@@ -2,7 +2,7 @@
   "name": "streaming-media-assignment",
   "version": "1.0.0",
   "description": "IGME 430 Streaming Media Assignment",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "start": "node ./src/server.js",
     "pretest": "eslint ./src --fix",
