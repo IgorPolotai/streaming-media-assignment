@@ -18,3 +18,4 @@ const getPage = (request, response, filePath) => {
 
 module.exports.getIndex = getIndex;
 module.exports.getPage = getPage;
+
